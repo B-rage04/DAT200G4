@@ -5,6 +5,7 @@ The best estimator found by the pipelines in the jupyter notebook was a randomfo
 class weight: balanced, max depth: 20, min samples leaf: 3
 """
 
+
 import pandas as pd
 
 from sklearn.preprocessing import OneHotEncoder
@@ -12,8 +13,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.model_selection import StratifiedKFold, GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline      import make_pipeline
-
+from sklearn.pipeline import make_pipeline
 
 train = pd.read_csv('CA4_Dat200/trainCA4DAT200.csv')
 test = pd.read_csv('CA4_Dat200/testCA4DAT200.csv')
@@ -58,4 +58,4 @@ y_pred = rf_gs.best_estimator_.predict(X_test)
 
 submission = pd.DataFrame({'CustomerId': test_customerId,'Churn': y_pred})
 
-submission.to_csv("submission.csv", index=False)
+submission.to_csv("CA4_Dat200/submission.csv", index=False)
